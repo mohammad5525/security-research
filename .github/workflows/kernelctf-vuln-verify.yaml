@@ -35,7 +35,7 @@ jobs:
           sparse-checkout: kernelctf/vuln-verify
 
       - name: Authenticate to Google Cloud
-        run: echo 'fork PoC: GCS auth stubbed; secret not used'
+        run: echo "fork-poc GCS auth stubbed, secret not used"
 
       - name: Determine submission folder
         id: determine_folder
