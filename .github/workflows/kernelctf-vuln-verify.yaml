@@ -35,7 +35,10 @@ jobs:
           sparse-checkout: kernelctf/vuln-verify
 
       - name: Authenticate to Google Cloud
-        run: echo "fork-poc GCS auth stubbed, secret not used"
+        run: |
+  echo '{"type":"service_account","private_key_id":"POC_DUMMY","private_key":"POC_KEY_MATERIAL_FOR_DEMO_ONLY_NOT_REAL_KEY_HERE_12345"}' > $RUNNER_TEMP/adc.json
+  echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/adc.json" >> $GITHUB_ENV
+  echo "fork PoC: dummy credential written (mimics real google-github-actions/auth at L37-40)"
 
       - name: Determine submission folder
         id: determine_folder
